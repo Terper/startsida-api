@@ -47,6 +47,7 @@ def todos():
                                 INNER JOIN wdbcms24_category c ON t.category_id = c.id
                             WHERE
                                 t.user_id = (SELECT id FROM wdbcms24_users WHERE api_key = %s)
+                            ORDER BY t.id
                             """, [api_key])
                 rows = cur.fetchall()
                 return rows
