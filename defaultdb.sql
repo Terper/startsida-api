@@ -23,8 +23,8 @@ CREATE TABLE "public"."wdbcms24_todo" (
     "user_id" int4 NOT NULL,
     "category_id" int4 NOT NULL,
     "title" varchar,
-    "done" bool,
-    "due_date" timestamp,
+    "done" bool NOT NULL DEFAULT false,
+    "due_date" varchar,
     CONSTRAINT "wdbcms24_todo_category_id_fkey" FOREIGN KEY ("category_id") REFERENCES "public"."wdbcms24_category"("id") ON DELETE SET NULL ON UPDATE SET NULL,
     CONSTRAINT "wdbcms24_todo_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "public"."wdbcms24_users"("id") ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY ("id")
